@@ -7,9 +7,7 @@
 #  Arch Linux Post Install Setup and Config
 #-------------------------------------------------------------------------
 
-echo
-echo "INSTALLING SOFTWARE"
-echo
+echo -e "\nINSTALLING SOFTWARE\n"
 
 PKGS=(
 
@@ -20,24 +18,19 @@ PKGS=(
     # TERMINAL UTILITIES --------------------------------------------------
 
     'bash-completion'       # Tab completion for Bash
-    'bc'                    # Precision calculator language
     'bleachbit'             # File deletion utility
+    'cronie'                # cron jobs
     'curl'                  # Remote content retrieval
-    'elinks'                # Terminal based web browser
-    'feh'                   # Terminal-based image viewer/manipulator
     'file-roller'           # Archive utility
-    'gnome-keyring'         # System password storage
     'gtop'                  # System monitoring via terminal
     'gufw'                  # Firewall manager
     'hardinfo'              # Hardware info app
     'htop'                  # Process viewer
-    'inxi'                  # System information utility
-    'jq'                    # JSON parsing library
-    'jshon'                 # JSON parsing library
     'neofetch'              # Shows system info when you launch terminal
     'ntp'                   # Network Time Protocol to set time via network.
     'numlockx'              # Turns on numlock in X11
     'openssh'               # SSH connectivity tools
+    'p7zip'                 # 7z compression program
     'rsync'                 # Remote file sync utility
     'speedtest-cli'         # Internet speed via terminal
     'terminus-font'         # Font package with some bigger fonts for login terminal
@@ -45,7 +38,8 @@ PKGS=(
     'unrar'                 # RAR compression program
     'unzip'                 # Zip compression program
     'wget'                  # Remote content retrieval
-    'xfce4-terminal'        # Terminal emulator
+    'terminator'            # Terminal emulator
+    'vim'                   # Terminal Editor
     'zenity'                # Display graphical dialog boxes via shell scripts
     'zip'                   # Zip compression program
     'zsh'                   # ZSH shell
@@ -53,86 +47,67 @@ PKGS=(
 
     # DISK UTILITIES ------------------------------------------------------
 
+    'android-tools'         # ADB for Android
+    'android-file-transfer' # Android File Transfer
     'autofs'                # Auto-mounter
+    'btrfs-progs'           # BTRFS Support
+    'dosfstools'            # DOS Support
     'exfat-utils'           # Mount exFat drives
     'gparted'               # Disk utility
-    'gnome-disks'           # Disk utility
+    'gvfs-mtp'              # Read MTP Connected Systems
+    'gvfs-smb'              # More File System Stuff
+    'nautilus-share'        # File Sharing in Nautilus
     'ntfs-3g'               # Open source implementation of NTFS file system
     'parted'                # Disk utility
+    'samba'                 # Samba File Sharing
+    'smartmontools'         # Disk Monitoring
+    'smbclient'             # SMB Connection 
+    'xfsprogs'              # XFS Support
 
     # GENERAL UTILITIES ---------------------------------------------------
 
-    'catfish'               # Filesystem search
-    'conky'                 # System information viewer
-    'nemo'                  # Filesystem browser
+    'flameshot'             # Screenshots
+    'freerdp'               # RDP Connections
+    'libvncserver'          # VNC Connections
+    'nautilus'              # Filesystem browser
+    'remmina'               # Remote Connection
     'veracrypt'             # Disc encryption utility
     'variety'               # Wallpaper changer
-    'xfburn'                # CD burning application
 
     # DEVELOPMENT ---------------------------------------------------------
 
-    'atom'                  # Text editor
-    'apache'                # Apache web server
+    'gedit'                 # Text editor
     'clang'                 # C Lang compiler
     'cmake'                 # Cross-platform open-source make system
+    'code'                  # Visual Studio Code
     'electron'              # Cross-platform development using Javascript
     'git'                   # Version control system
     'gcc'                   # C/C++ compiler
     'glibc'                 # C libraries
-    'mariadb'               # Drop-in replacement for MySQL
     'meld'                  # File/directory comparison
     'nodejs'                # Javascript runtime environment
     'npm'                   # Node package manager
-    'php'                   # Web application scripting language
-    'php-apache'            # Apache PHP driver
-    'postfix'               # SMTP mail server
     'python'                # Scripting language
-    'qtcreator'             # C++ cross platform IDE
-    'qt5-examples'          # Project demos for Qt
     'yarn'                  # Dependency management (Hyper needs this)
-
-    # WEB TOOLS -----------------------------------------------------------
-
-    'chromium'              # Web browser
-    'firefox'               # Web browser
-    'filezilla'             # FTP Client
-    'flashplugin'           # Flash
-
-    # COMMUNICATIONS ------------------------------------------------------
-
-    'hexchat'               # Multi format chat
-    'irssi'                 # Terminal based IIRC
 
     # MEDIA ---------------------------------------------------------------
 
-    'lollypop'              # Music player
-    'simplescreenrecorder'  # Record your screen
-    'vlc'                   # Video player
-    'xfce4-screenshooter'   # Screen capture.
-
+    'kdenlive'              # Movie Render
+    'obs-studio'            # Record your screen
+    'celluloid'             # Video player
+    
     # GRAPHICS AND DESIGN -------------------------------------------------
 
     'gcolor2'               # Colorpicker
     'gimp'                  # GNU Image Manipulation Program
-    'inkscape'              # Vector image creation app
-    'imagemagick'           # Command line image manipulation tool
-    'nomacs'                # Image viewer
-    'pngcrush'              # Tools for optimizing PNG images
     'ristretto'             # Multi image viewer
 
     # PRODUCTIVITY --------------------------------------------------------
 
-    'galculator'            # Gnome calculator
     'hunspell'              # Spellcheck libraries
     'hunspell-en'           # English spellcheck library
-    'libreoffice-fresh'     # Libre office with extra features
-    'mousepad'              # XFCE simple text editor
     'xpdf'                  # PDF viewer
 
-    # VIRTUALIZATION ------------------------------------------------------
-
-    'virtualbox'
-    'virtualbox-host-modules-arch'
 )
 
 for PKG in "${PKGS[@]}"; do
@@ -140,6 +115,4 @@ for PKG in "${PKGS[@]}"; do
     sudo pacman -S "$PKG" --noconfirm --needed
 done
 
-echo
-echo "Done!"
-echo
+echo -e "\nDone!\n"
